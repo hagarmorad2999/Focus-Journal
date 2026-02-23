@@ -8,14 +8,10 @@ function getNews(cate) {
     .then(res => res.json())
     .then(result => {
       allData = result.articles;
-      console.log(allData);
       displayData();
     })
-    .catch(err => {
-      console.error('Error fetching news:', err);
-    });
+    .catch(err => console.error('Error fetching news:', err));
 }
-
 
 
 var data=document.getElementById('data');
