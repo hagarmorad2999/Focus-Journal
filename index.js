@@ -1,17 +1,19 @@
 
 var allData=[];
 var myHTTP=new XMLHttpRequest()
-function getNews(cate){
-    var myHTTP=new XMLHttpRequest()
-myHTTP.open('GET',`https://newsapi.org/v2/top-headlines?country=us&category=${cate}&apiKey=9e1f6d821cc04fd088adbeeb52649c47`);
-myHTTP.send();
-myHTTP.addEventListener('readystatechange',function(){
-if(myHTTP.readyState==4 && myHTTP.status == 200 ){
-allData=JSON.parse(myHTTP.responseText).articles;
-console.log(allData);
-displayData()}
 
-});
+
+function getNews(cate) {
+  fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${cate}&apiKey=9e1f6d821cc04fd088adbeeb52649c47`)
+    .then(res => res.json())
+    .then(result => {
+      allData = result.articles;
+      console.log(allData);
+      displayData();
+    })
+    .catch(err => {
+      console.error('Error fetching news:', err);
+    });
 }
 
 
