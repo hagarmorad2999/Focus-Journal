@@ -14,6 +14,15 @@ function getNews(cate) {
 }
 
 
+
+
+
+
+
+
+
+
+
 var data=document.getElementById('data');
 function displayData(){
     var cartona=``
